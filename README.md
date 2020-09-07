@@ -6,7 +6,7 @@ Peu importe dans quel but vous utiliserez le serveur, dans la plupart des cas, v
 
 ```
 [root@localhost ~]#  yum install httpd -y
-Modules complémentaires chargés : fastestmirror
+Modules complémentaires chargés : fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirrors.atosworldline.com
  * extras: ftp.pasteur.fr
@@ -30,15 +30,14 @@ Installation pour dépendances :
 Résumé de la transaction
 ================================================================================
 Installation   1 Paquet (+4 Paquets en dépendance)
-Installé :
+Installé :
   httpd.x86_64 0:2.4.6-93.el7.centos
 
-Dépendances installées :
+Dépendances installées :
   apr.x86_64 0:1.4.8-5.el7                     apr-util.x86_64 0:1.5.2-6.el7
   httpd-tools.x86_64 0:2.4.6-93.el7.centos     mailcap.noarch 0:2.1.41-2.el7
 
-Terminé !
-
+Terminé !
 ```
 
 Il faut activer le firewall :
@@ -61,14 +60,14 @@ sept. 07 14:50:12 localhost.localdomain firewalld[680]: WARNING: AllowZoneDri...
 Hint: Some lines were ellipsized, use -l to show in full.
 ```
 
-Autoriser le service **http à **travers le pare-feu 
+Autoriser le service **http à **travers le pare-feu
 
 ```
 [root@localhost ~]# firewall-cmd --add-service=http
 success
 ```
 
-Autoriser le port **80 à **travers le pare-feu 
+Autoriser le port **80 à **travers le pare-feu
 
 ```
 [root@localhost ~]# firewall-cmd --permanent --add-port=3221/tcp
@@ -93,8 +92,12 @@ Ajoutez maintenant le service Apache à l'ensemble du système pour démarrer au
 ```
 [root@localhost ~]# systemctl enable httpd.service
 Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
- 
+
 ```
+
+##### 2. Install PHP
+
+PHP est un langage de script côté serveur pour les services Web.Il est également fréquemment utilisé comme langage de programmation à usage général
 
 
 
