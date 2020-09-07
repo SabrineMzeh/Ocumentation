@@ -1,4 +1,4 @@
-# Configuration des machines
+# $$x = y$$Configuration des machines
 
 1. ##### Installez Apache HTTP Server
 
@@ -100,7 +100,7 @@ PHP est un langage de script côté serveur pour les services Web.Il est égalem
 
 ```
 [root@localhost ~]# yum install php -y
-Modules complémentaires chargés : fastestmirror
+Modules complémentaires chargés : fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirrors.atosworldline.com
  * extras: ftp.pasteur.fr
@@ -108,23 +108,23 @@ Loading mirror speeds from cached hostfile
 Résolution des dépendances
 --> Lancement de la transaction de test
 ---> Le paquet php.x86_64 0:5.4.16-48.el7 sera installé
---> Traitement de la dépendance : php-common(x86-64) = 5.4.16-48.el7 pour le paquet : php-5.4.16-48.el7.x86_64
---> Traitement de la dépendance : php-cli(x86-64) = 5.4.16-48.el7 pour le paquet : php-5.4.16-48.el7.x86_64
+--> Traitement de la dépendance : php-common(x86-64) = 5.4.16-48.el7 pour le paquet : php-5.4.16-48.el7.x86_64
+--> Traitement de la dépendance : php-cli(x86-64) = 5.4.16-48.el7 pour le paquet : php-5.4.16-48.el7.x86_64
 --> Lancement de la transaction de test
 ---> Le paquet php-cli.x86_64 0:5.4.16-48.el7 sera installé
 ---> Le paquet php-common.x86_64 0:5.4.16-48.el7 sera installé
---> Traitement de la dépendance : libzip.so.2()(64bit) pour le paquet : php-common-5.4.16-48.el7.x86_64
+--> Traitement de la dépendance : libzip.so.2()(64bit) pour le paquet : php-common-5.4.16-48.el7.x86_64
 --> Lancement de la transaction de test
 ---> Le paquet libzip.x86_64 0:0.10.1-8.el7 sera installé
 --> Résolution des dépendances terminée
-Installé :
+Installé :
   php.x86_64 0:5.4.16-48.el7
 
-Dépendances installées :
+Dépendances installées :
   libzip.x86_64 0:0.10.1-8.el7             php-cli.x86_64 0:5.4.16-48.el7
   php-common.x86_64 0:5.4.16-48.el7
 
-Terminé !
+Terminé !
 ```
 
 Après avoir installé php, assurez-vous de redémarrer le service Apache pour rendre PHP dans le navigateur Web.
@@ -135,13 +135,11 @@ Après avoir installé php, assurez-vous de redémarrer le service Apache pour r
 
 ##### 3.Installez la base de données MariaDB
 
-
-
-**MariaDB **est un fork de **MySQL**. RedHat Enterprise Linux et ses dérivés sont passés de MySQL à MariaDB. C'est le système de gestion de base de données primaire. C'est encore l'un de ces outils qu'il est nécessaire d'avoir et vous en aurez besoin tôt ou tard, quel que soit le type de serveur que vous définissez 
+**MariaDB **est un fork de **MySQL**. RedHat Enterprise Linux et ses dérivés sont passés de MySQL à MariaDB. C'est le système de gestion de base de données primaire. C'est encore l'un de ces outils qu'il est nécessaire d'avoir et vous en aurez besoin tôt ou tard, quel que soit le type de serveur que vous définissez
 
 ```
 [root@localhost ~]# yum install mariadb-server mariadb -y
-Modules complémentaires chargés : fastestmirror
+Modules complémentaires chargés : fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirrors.atosworldline.com
  * extras: ftp.pasteur.fr
@@ -185,10 +183,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 
-Installé :
+Installé :
   mariadb.x86_64 1:5.5.65-1.el7       mariadb-server.x86_64 1:5.5.65-1.el7
 
-Terminé !
+Terminé !
 ```
 
 Démarrez et configurez MariaDB pour démarrer automatiquement au démarrage.
@@ -199,7 +197,12 @@ Démarrez et configurez MariaDB pour démarrer automatiquement au démarrage.
 Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
 ```
 
+Autoriser le service mysql \(**mariadb**\) à travers le pare-feu.
 
+```
+[root@localhost ~]# firewall-cmd --add-service=mysql
+success
+```
 
 
 
