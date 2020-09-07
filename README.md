@@ -210,7 +210,7 @@ success
 
 ```
 [root@localhost ~]# yum install gcc
-Modules complémentaires chargés : fastestmirror
+Modules complémentaires chargés : fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirrors.atosworldline.com
  * extras: ftp.pasteur.fr
@@ -218,10 +218,10 @@ Loading mirror speeds from cached hostfile
 Résolution des dépendances
 --> Lancement de la transaction de test
 ---> Le paquet gcc.x86_64 0:4.8.5-39.el7 sera installé
-Installé :
+Installé :
   gcc.x86_64 0:4.8.5-39.el7
 
-Dépendances installées :
+Dépendances installées :
   cpp.x86_64 0:4.8.5-39.el7
   glibc-devel.x86_64 0:2.17-307.el7.1
   glibc-headers.x86_64 0:2.17-307.el7.1
@@ -229,7 +229,7 @@ Dépendances installées :
   libmpc.x86_64 0:1.0.1-3.el7
   mpfr.x86_64 0:3.1.1-4.el7
 
-Terminé !
+Terminé !
 ```
 
 Vérifiez la version de **gcc **installé.
@@ -238,6 +238,8 @@ Vérifiez la version de **gcc **installé.
 [root@localhost ~]# gcc --version
 gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
+
+##### 5.Test Perfermance 
 
 
 
