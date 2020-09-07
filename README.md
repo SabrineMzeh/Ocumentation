@@ -1,6 +1,8 @@
 # Configuration des machines
 
-1. ##### Installez Apache HTTP Server
+
+
+##### 1.Installer Apache HTTP Server
 
 Peu importe dans quel but vous utiliserez le serveur, dans la plupart des cas, vous avez besoin d'un serveur HTTP pour exécuter des sites Web, du multimédia, des scripts côté client et bien d'autres choses.
 
@@ -94,7 +96,7 @@ Ajoutez maintenant le service Apache à l'ensemble du système pour démarrer au
 Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
 ```
 
-##### 2. Install PHP
+##### 2. Installer PHP
 
 PHP est un langage de script côté serveur pour les services Web.Il est également fréquemment utilisé comme langage de programmation à usage général
 
@@ -133,7 +135,7 @@ Après avoir installé php, assurez-vous de redémarrer le service Apache pour r
 [root@localhost ~]# systemctl restart httpd.service
 ```
 
-##### 3.Installez la base de données MariaDB
+##### 3.Installer la base de données MariaDB
 
 **MariaDB **est un fork de **MySQL**. RedHat Enterprise Linux et ses dérivés sont passés de MySQL à MariaDB. C'est le système de gestion de base de données primaire. C'est encore l'un de ces outils qu'il est nécessaire d'avoir et vous en aurez besoin tôt ou tard, quel que soit le type de serveur que vous définissez
 
@@ -204,7 +206,7 @@ Autoriser le service mysql \(**mariadb**\) à travers le pare-feu.
 success
 ```
 
-##### 4. Installez GCC :
+##### 4. Installer GCC :
 
 **GCC **signifie **GNU Compiler Collection **est un système de compilation développé par GNU Project qui prend en charge divers langages de programmation.
 
@@ -239,7 +241,7 @@ Vérifiez la version de **gcc **installé.
 gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-##### 5.Test Perfermance
+##### 5.Tester Perfermance
 
 
 
