@@ -204,5 +204,40 @@ Autoriser le service mysql \(**mariadb**\) à travers le pare-feu.
 success
 ```
 
+##### 4. Installez GCC :
+
+**GCC **signifie **GNU Compiler Collection **est un système de compilation développé par GNU Project qui prend en charge divers langages de programmation.
+
+```
+[root@localhost ~]# yum install gcc
+Modules complémentaires chargés : fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.atosworldline.com
+ * extras: ftp.pasteur.fr
+ * updates: mirrors.atosworldline.com
+Résolution des dépendances
+--> Lancement de la transaction de test
+---> Le paquet gcc.x86_64 0:4.8.5-39.el7 sera installé
+Installé :
+  gcc.x86_64 0:4.8.5-39.el7
+
+Dépendances installées :
+  cpp.x86_64 0:4.8.5-39.el7
+  glibc-devel.x86_64 0:2.17-307.el7.1
+  glibc-headers.x86_64 0:2.17-307.el7.1
+  kernel-headers.x86_64 0:3.10.0-1127.19.1.el7
+  libmpc.x86_64 0:1.0.1-3.el7
+  mpfr.x86_64 0:3.1.1-4.el7
+
+Terminé !
+```
+
+Vérifiez la version de **gcc **installé.
+
+```
+[root@localhost ~]# gcc --version
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
+```
+
 
 
