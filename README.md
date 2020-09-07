@@ -1,4 +1,4 @@
-# $$x = y$$Configuration des machines
+# Configuration des machines
 
 1. ##### Installez Apache HTTP Server
 
@@ -239,7 +239,7 @@ Vérifiez la version de **gcc **installé.
 gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-##### 5.Test Perfermance 
+##### 5.Test Perfermance
 
 
 
