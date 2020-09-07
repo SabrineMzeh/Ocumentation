@@ -92,12 +92,114 @@ Ajoutez maintenant le service Apache à l'ensemble du système pour démarrer au
 ```
 [root@localhost ~]# systemctl enable httpd.service
 Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
-
 ```
 
 ##### 2. Install PHP
 
 PHP est un langage de script côté serveur pour les services Web.Il est également fréquemment utilisé comme langage de programmation à usage général
+
+```
+[root@localhost ~]# yum install php -y
+Modules complémentaires chargés : fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.atosworldline.com
+ * extras: ftp.pasteur.fr
+ * updates: mirrors.atosworldline.com
+Résolution des dépendances
+--> Lancement de la transaction de test
+---> Le paquet php.x86_64 0:5.4.16-48.el7 sera installé
+--> Traitement de la dépendance : php-common(x86-64) = 5.4.16-48.el7 pour le paquet : php-5.4.16-48.el7.x86_64
+--> Traitement de la dépendance : php-cli(x86-64) = 5.4.16-48.el7 pour le paquet : php-5.4.16-48.el7.x86_64
+--> Lancement de la transaction de test
+---> Le paquet php-cli.x86_64 0:5.4.16-48.el7 sera installé
+---> Le paquet php-common.x86_64 0:5.4.16-48.el7 sera installé
+--> Traitement de la dépendance : libzip.so.2()(64bit) pour le paquet : php-common-5.4.16-48.el7.x86_64
+--> Lancement de la transaction de test
+---> Le paquet libzip.x86_64 0:0.10.1-8.el7 sera installé
+--> Résolution des dépendances terminée
+Installé :
+  php.x86_64 0:5.4.16-48.el7
+
+Dépendances installées :
+  libzip.x86_64 0:0.10.1-8.el7             php-cli.x86_64 0:5.4.16-48.el7
+  php-common.x86_64 0:5.4.16-48.el7
+
+Terminé !
+```
+
+Après avoir installé php, assurez-vous de redémarrer le service Apache pour rendre PHP dans le navigateur Web.
+
+```
+[root@localhost ~]# systemctl restart httpd.service
+```
+
+##### 3.Installez la base de données MariaDB
+
+
+
+**MariaDB **est un fork de **MySQL**. RedHat Enterprise Linux et ses dérivés sont passés de MySQL à MariaDB. C'est le système de gestion de base de données primaire. C'est encore l'un de ces outils qu'il est nécessaire d'avoir et vous en aurez besoin tôt ou tard, quel que soit le type de serveur que vous définissez 
+
+```
+[root@localhost ~]# yum install mariadb-server mariadb -y
+Modules complémentaires chargés : fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.atosworldline.com
+ * extras: ftp.pasteur.fr
+ * updates: mirrors.atosworldline.com
+Résolution des dépendances
+--> Lancement de la transaction de test
+---> Le paquet mariadb.x86_64 1:5.5.65-1.el7 sera installé
+--> Lancement de la transaction de test
+---> Le paquet perl.x86_64 4:5.16.3-295.el7 sera installé
+-
+================================================================================
+ Package                      Architecture
+                                          Version               Dépôt     Taille
+================================================================================
+ 00:00
+(16/37): perl-PlRPC-0.2020-14.el7.noarch.rpm               |  36 kB   00:00
+(17/37): perl-Pod-Escapes-1.04-295.el7.noarch.rpm          |  51 kB   00:00
+(18/37): perl-Pod-Perldoc-3.20-4.el7.noarch.rpm            |  87 kB   00:00
+(19/37): perl-Pod-Simple-3.28-4.el7.noarch.rpm             | 216 kB   00:00
+(20/37): perl-Pod-Usage-1.63-3.el7.noarch.rpm              |  27 kB   00:00
+(21/37): perl-Scalar-List-Utils-1.27-248.el7.x86_64.rpm    |  36 kB   00:00
+(22/37): perl-Socket-2.010-5.el7.x86_64.rpm                |  49 kB   00:00
+(23/37): perl-Storable-2.45-3.el7.x86_64.rpm               |  77 kB   00:00
+(24/37): perl-Text-ParseWords-3.29-4.el7.noarch.rpm        |  14 kB   00:00
+(25/37): perl-Time-HiRes-1.9725-3.el7.x86_64.rpm           |  45 kB   00:00
+(26/37): perl-Time-Local-1.2300-2.el7.noarch.rpm           |  24 kB   00:00
+(27/37): perl-constant-1.27-2.el7.noarch.rpm               |  19 kB   00:00
+(28/37): mariadb-server-5.5.65-1.el7.x86_64.rpm            |  11 MB   00:08
+(29/37): perl-macros-5.16.3-295.el7.x86_64.rpm             |  44 kB   00:00
+(30/37): perl-parent-0.225-244.el7.noarch.rpm              |  12 kB   00:00
+(31/37): perl-podlators-2.5.1-3.el7.noarch.rpm             | 112 kB   00:00
+(32/37): perl-threads-1.87-4.el7.x86_64.rpm                |  49 kB   00:00
+(33/37): perl-threads-shared-1.43-6.el7.x86_64.rpm         |  39 kB   00:00
+(34/37): perl-libs-5.16.3-295.el7.x86_64.rpm               | 689 kB   00:01
+(35/37): mariadb-5.5.65-1.el7.x86_64.rpm                   | 8.7 MB   00:13
+(36/37): perl-5.16.3-295.el7.x86_64.rpm                    | 8.0 MB   00:15
+(37/37): perl-Exporter-5.68-3.el7.noarch.rpm               |  28 kB   00:00
+--------------------------------------------------------------------------------
+Total                                              956 kB/s |  33 MB  00:35
+Running transaction check
+Running transaction test
+Transaction test succeeded
+
+Installé :
+  mariadb.x86_64 1:5.5.65-1.el7       mariadb-server.x86_64 1:5.5.65-1.el7
+
+Terminé !
+```
+
+Démarrez et configurez MariaDB pour démarrer automatiquement au démarrage.
+
+```
+[root@localhost ~]# systemctl start mariadb.service
+[root@localhost ~]# systemctl enable mariadb.service
+Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
+```
+
+
 
 
 
