@@ -1,7 +1,5 @@
 # Configuration des machines
 
-
-
 ##### 1.Installer Apache HTTP Server
 
 Peu importe dans quel but vous utiliserez le serveur, dans la plupart des cas, vous avez besoin d'un serveur HTTP pour exécuter des sites Web, du multimédia, des scripts côté client et bien d'autres choses.
@@ -242,6 +240,30 @@ gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
 ##### 5.Tester Perfermance
+
+installer un outil stress
+
+```
+[root@localhost ~]# yum install stress -y
+
+Dépendances résolues
+
+=============================================================================================================================================
+ Package                         Architecture                    Version                                 Dépôt                         Taille
+=============================================================================================================================================
+Installation :
+ stress                          x86_64                          1.0.4-16.el7                            epel                           39 k
+
+Résumé de la transaction
+=============================================================================================================================================
+Installation   1 Paquet
+                                                                                           1/1
+Installé :
+  stress.x86_64 0:1.0.4-16.el7
+
+Terminé !
+
+```
 
 
 
