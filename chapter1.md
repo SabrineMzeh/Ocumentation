@@ -190,7 +190,7 @@ Successfully installed appdirs-1.4.4 configparser-4.0.2 contextlib2-0.6.0.post1 
 
 ##### Créer un environnement virtuel à l'aide de virtualenv
 
-Dites que vous souhaitez créer un environnement virtuel dédié pour contenir le framework Django: 
+Dites que vous souhaitez créer un environnement virtuel dédié pour contenir le framework Django:
 
 ```
 [root@localhost ~]# mkdir my_django_app
@@ -203,7 +203,7 @@ created virtual environment CPython2.7.5.final.0-64 in 2436ms
   activators PythonActivator,CShellActivator,FishActivator,PowerShellActivator,BashActivator
 ```
 
-##### 5.Installez Django dans l'environnement virtuel 
+##### 5.Installez Django dans l'environnement virtuel
 
 Tout d'abord, activez l'environnement virtuel:
 
@@ -214,7 +214,7 @@ Tout d'abord, activez l'environnement virtuel:
 
 Cela signifie que vous êtes entré dans l'environnement virtuel "djangoenv".
 
-Installez Django dans l'environnement virtuel: 
+Installez Django dans l'environnement virtuel:
 
 ```
 [root@localhost ~]# python3.7 -m venv venv
@@ -232,6 +232,13 @@ Installing collected packages: Django
 Successfully installed Django-2.2.14
 You are using pip version 10.0.1, however version 20.2.3 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
+```
+
+Vérifier l'installation 
+
+```
+(venv) [root@localhost ~]# python -m django --version
+2.2.14
 ```
 
 
