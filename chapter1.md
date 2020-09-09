@@ -46,7 +46,7 @@ Terminé !
 
 ##### 2.Installez pip et les dépendances nécessaires
 
-Utilisez les commandes ci-dessous pour installer la dernière version de pip 
+Utilisez les commandes ci-dessous pour installer la dernière version de pip
 
 ```
 [root@localhost ~]# sudo yum install python-devel python-setuptools python-pip
@@ -73,14 +73,14 @@ Installation pour dépendances :
 Résumé de la transaction
 =============================================================================================================================================
 Installation   3 Paquets (+6 Paquets en dépendance)
-Installé :
+Installé :
   python-devel.x86_64 0:2.7.5-88.el7           python-setuptools.noarch 0:0.9.8-7.el7           python2-pip.noarch 0:8.1.2-12.el7
 
-Dépendances installées :
+Dépendances installées :
   python-backports.x86_64 0:1.0-8.el7   python-backports-ssl_match_hostname.noarch 0:3.5.0.1-1.el7   python-ipaddress.noarch 0:1.0.16-2.el7
   python-rpm-macros.noarch 0:3-32.el7   python-srpm-macros.noarch 0:3-32.el7                         python2-rpm-macros.noarch 0:3-32.el7
 
-Terminé !
+Terminé !
 ```
 
 ```
@@ -116,21 +116,21 @@ Résumé de la transaction
 =============================================================================================================================================
 Installation   1 Paquet (+1 Paquet en dépendance)
 
-Taille totale des téléchargements : 24 k
-Taille d'installation : 39 k
+Taille totale des téléchargements : 24 k
+Taille d'installation : 39 k
 Downloading packages:
 (1/2): centos-release-scl-rh-2-3.el7.centos.noarch.rpm                                                                |  12 kB  00:00:00
 (2/2): centos-release-scl-2-3.el7.centos.noarch.rpm                                                                   |  12 kB  00:00:00
 ---------------------------------------------------------------------------------------------------------------------------------------------
                                                                              2/2
 
-Installé :
+Installé :
   centos-release-scl.noarch 0:2-3.el7.centos
 
-Dépendances installées :
+Dépendances installées :
   centos-release-scl-rh.noarch 0:2-3.el7.centos
 
-Terminé !
+Terminé !
 ```
 
 Une fois le référentiel activé, installez Python 3.7 avec la commande suivante:
@@ -145,7 +145,6 @@ Une fois Python 3.6 installé, nous sommes prêts à créer un environnement vir
 
 ##### 
 
-  
 Vous pouvez utiliser pip pour installer virtualenv:
 
 ```
@@ -187,7 +186,52 @@ Installing collected packages: six, singledispatch, contextlib2, zipp, scandir, 
     Running setup.py install for scandir ... done
     Running setup.py install for filelock ... done
 Successfully installed appdirs-1.4.4 configparser-4.0.2 contextlib2-0.6.0.post1 distlib-0.3.1 filelock-3.0.12 importlib-metadata-1.7.0 importlib-resources-3.0.0 pathlib2-2.3.5 scandir-1.10.0 singledispatch-3.4.0.3 six-1.15.0 typing-3.7.4.3 virtualenv-20.0.31 zipp-1.2.0
+```
 
+##### Créer un environnement virtuel à l'aide de virtualenv
+
+Dites que vous souhaitez créer un environnement virtuel dédié pour contenir le framework Django: 
+
+```
+[root@localhost ~]# mkdir my_django_app
+[root@localhost ~]# cd my_django_app
+[root@localhost my_django_app]# virtualenv djangoenv
+created virtual environment CPython2.7.5.final.0-64 in 2436ms
+  creator CPython2Posix(dest=/root/my_django_app/djangoenv, clear=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, wheel=bundle, setuptools=bundle, via=copy, app_data_dir=/root/.local/share/virtualenv)
+    added seed packages: pip==20.2.2, setuptools==44.1.1, wheel==0.35.1
+  activators PythonActivator,CShellActivator,FishActivator,PowerShellActivator,BashActivator
+```
+
+##### 5.Installez Django dans l'environnement virtuel 
+
+Tout d'abord, activez l'environnement virtuel:
+
+```
+[root@localhost ~]# source ~/djangoenv/bin/activate
+(djangoenv) [root@localhost ~]#
+```
+
+Cela signifie que vous êtes entré dans l'environnement virtuel "djangoenv".
+
+Installez Django dans l'environnement virtuel: 
+
+```
+[root@localhost ~]# python3.7 -m venv venv
+(venv) [root@localhost ~]# source venv/bin/activate
+(venv) [root@localhost ~]# pip install Django==2.2.14
+Collecting Django==2.2.14
+  Downloading https://files.pythonhosted.org/packages/f2/6c/f7e0ed3d07952742439be43e7fb5a8b07b065ab927c6493be2a6cea59f33/Django-2.2.14-py3-none-any.whl (7.5MB)
+    100% |████████████████████████████████| 7.5MB 2.5MB/s
+Requirement already satisfied: pytz in ./venv/lib/python3.7/site-packages (from Django==2.2.14) (2020.1)
+Requirement already satisfied: sqlparse>=0.2.2 in ./venv/lib/python3.7/site-packages (from Django==2.2.14) (0.3.1)
+Installing collected packages: Django
+  Found existing installation: Django 3.1.1
+    Uninstalling Django-3.1.1:
+      Successfully uninstalled Django-3.1.1
+Successfully installed Django-2.2.14
+You are using pip version 10.0.1, however version 20.2.3 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
 ```
 
 
