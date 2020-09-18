@@ -306,9 +306,5 @@ Quit the server with CONTROL-C.
 
 Vous pouvez accéder à l'application Django en visitant l'URL http: //192.168.1.6: 8000
 
-
-
-
-
 ![](/assets/import.png)
 
