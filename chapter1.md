@@ -84,7 +84,7 @@ Terminé !
 ```
 
 ```
-[root@localhost ~]# sudo pip install --upgrade pip
+[root@localhost ~]# sudo pip3 install --upgrade pip
 Collecting pip
   Downloading https://files.pythonhosted.org/packages/4e/5f/528232275f6509b1fff703c9280e58951a81abe24640905de621c9f81839/pip-20.2.3-py2.py3-none-any.whl (1.5MB)
     100% |████████████████████████████████| 1.5MB 355kB/s
@@ -133,13 +133,13 @@ Dépendances installées :
 Terminé !
 ```
 
-Une fois le référentiel activé, installez Python 3.7 avec la commande suivante:
+Une fois le référentiel activé, installez Python 3.8 avec la commande suivante:
 
 ```
-sudo yum install rh-python37
+sudo yum install rh-python38
 ```
 
-Une fois Python 3.6 installé, nous sommes prêts à créer un environnement virtuel pour notre application Django.
+Une fois Python 3.8 installé, nous sommes prêts à créer un environnement virtuel pour notre application Django.
 
 ##### 4. Création d'un environnement virtuel
 
@@ -219,7 +219,7 @@ Installez Django dans l'environnement virtuel:
 ```
 [root@localhost ~]# python3.7 -m venv venv
 (venv) [root@localhost ~]# source venv/bin/activate
-(venv) [root@localhost ~]# pip install Django==2.2.14
+(venv) [root@localhost ~]# pip install Django==2.2.*
 Collecting Django==2.2.14
   Downloading https://files.pythonhosted.org/packages/f2/6c/f7e0ed3d07952742439be43e7fb5a8b07b065ab927c6493be2a6cea59f33/Django-2.2.14-py3-none-any.whl (7.5MB)
     100% |████████████████████████████████| 7.5MB 2.5MB/s
@@ -240,6 +240,74 @@ Vérifier l'installation
 (venv) [root@localhost ~]# python -m django --version
 2.2.14
 ```
+
+Une fois le projet django créé, changez le répertoire en djangoproject et migrez les modifications avec la commande suivante:
+
+```
+(djangoenv) [root@localhost opt]# cd djangop
+(djangoenv) [root@localhost djangop]#  python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+```
+
+Ensuite, vous devrez créer un compte utilisateur administrateur pour gérer le projet Django. Vous pouvez le créer avec la commande suivante:
+
+```
+(djangoenv) [root@localhost djangop]# python3 manage.py createsuperuser
+Username (leave blank to use 'root'): sabrine
+Email address: sabrine.mzeh@gmail.com
+Password:
+Password (again):
+The password is too similar to the email address.
+This password is too short. It must contain at least 8 characters.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+```
+
+Par défaut, l'application Django n'est pas accessible depuis les hôtes distants.
+
+Vous devrez donc autoriser Django pour les hôtes externes. Vous pouvez le faire en ajoutant l'adresse IP de votre serveur dans settings.py:
+
+```
+ cd /opt/djangop/djangop/settings.py
+
+```
+
+Modifiez la ligne suivante:  
+`ALLOWED_HOSTS = ['192.168.1.6']`
+
+Enregistrez et fermez le fichier.Ensuite, démarrez l'application Django avec la commande suivante: 
+
+```
+djangoenv) [root@localhost djangop]#  python3 manage.py runserver 192.168.1.6:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 18, 2020 - 14:19:35
+Django version 2.1.15, using settings 'djangop.settings'
+Starting development server at http://192.168.1.6:8000/
+Quit the server with CONTROL-C.
+```
+
+Vous pouvez accéder à l'application Django en visitant l'URL http: //192.168.1.6: 8000
+
+![](/assets/first page.png)
 
 
 
