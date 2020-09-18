@@ -56,7 +56,6 @@ Nous allons créer un fichier de configuration **/etc/haproxy/haproxy.cfg **cont
 Et on ajoute cette partie :
 
 ```
-
 [root@localhost ~]# cat /etc/haproxy/haproxy.cfg
 
 global
@@ -87,7 +86,6 @@ backend http_back
      balance roundrobin
      server my_server private_IP:80 check
      server my_server private_IP:80 check
-
 ```
 
 Ensuite,redémarrez Haproxy en utilisant la commande ci-dessous:
