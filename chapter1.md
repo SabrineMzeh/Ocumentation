@@ -234,7 +234,7 @@ You are using pip version 10.0.1, however version 20.2.3 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command.
 ```
 
-Vérifier l'installation 
+Vérifier l'installation
 
 ```
 (venv) [root@localhost ~]# python -m django --version
