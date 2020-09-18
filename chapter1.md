@@ -286,13 +286,12 @@ Vous devrez donc autoriser Django pour les hôtes externes. Vous pouvez le faire
 
 ```
  cd /opt/djangop/djangop/settings.py
-
 ```
 
 Modifiez la ligne suivante:  
-`ALLOWED_HOSTS = ['192.168.1.6']`
+`ALLOWED_HOSTS = ['192.168.1.6']`
 
-Enregistrez et fermez le fichier.Ensuite, démarrez l'application Django avec la commande suivante: 
+Enregistrez et fermez le fichier.Ensuite, démarrez l'application Django avec la commande suivante:
 
 ```
 djangoenv) [root@localhost djangop]#  python3 manage.py runserver 192.168.1.6:8000
@@ -307,7 +306,9 @@ Quit the server with CONTROL-C.
 
 Vous pouvez accéder à l'application Django en visitant l'URL http: //192.168.1.6: 8000
 
-![](/assets/first page.png)
 
 
+
+
+![](/assets/import.png)
 
